@@ -1,10 +1,16 @@
-import RegisterForm from "@/components/RegisterForm";
+import About from '@/components/About'
+
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
-export default  function RegisterPage() {
+export default function Home() {
+  
 
 
-  return <RegisterForm />;
+  return (
+    <main className="">
+      <About />
+    </main>
+  )
 }
