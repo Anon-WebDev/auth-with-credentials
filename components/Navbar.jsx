@@ -3,6 +3,8 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import Link from 'next/link';
 
 
@@ -167,7 +169,7 @@ export default function Navbar() {
                                                 {({ active }) => (
                                                     <>
                                                         {session && (
-                                                            <Link
+                                                            <Link 
                                                                 href="/dashboard"
                                                                 className={classNames(
                                                                     'hover:bg-slate-200 block px-4 py-2 text-sm text-gray-700',
@@ -192,7 +194,8 @@ export default function Navbar() {
 
 
                                                                 <Link
-                                                                    href="/api/auth/signout"
+                                                                    href="#"
+                                                                    onClick={() => signOut()}
                                                                     className={classNames(
                                                                         'flex items-center hover:bg-slate-200 px-4 py-2 text-sm text-gray-700',
                                                                         { 'bg-gray-100': active }
@@ -211,7 +214,8 @@ export default function Navbar() {
                                                             <>
 
                                                                 <Link
-                                                                    href="/api/auth/signin"
+                                                                    href="#"
+                                                                    onClick={() => signIn()}
                                                                     className={classNames(
                                                                         'flex items-center hover:bg-slate-200 px-4 py-2 text-sm text-gray-700',
                                                                         { 'bg-gray-100': active }
