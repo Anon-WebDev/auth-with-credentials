@@ -7,7 +7,7 @@ import bcrypt from "bcryptjs";
 export const authOptions = {
   providers: [
     CredentialsProvider({
-      name: "credentials",
+      name: "Credentials",
       credentials: {},
 
       async authorize(credentials) {
@@ -41,9 +41,22 @@ export const authOptions = {
   pages: {
     signIn: '/login',
     signOut: '/logout',
-    
-   
-  }
+  },
+  callbacks: {
+    async jwt(token, user) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+        token.firstName = user.firstName;
+        token.lastName = user.lastName;
+      }
+      return token;
+    },
+    async session(session, user) {
+      // Add custom logic for manipulating the session
+      return session;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);

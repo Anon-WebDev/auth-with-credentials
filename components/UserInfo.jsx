@@ -5,6 +5,13 @@ import { useSession } from "next-auth/react";
 
 export default function UserInfo() {
   const { data: session } = useSession();
+  
+   console.log("Session Data:", {
+    email: session?.user?.email,
+    firstName: session?.user?.firstName,
+    lastName: session?.user?.lastName,
+    // Add more properties as needed
+  });
 
   return (
     <div className="grid place-items-center h-screen">

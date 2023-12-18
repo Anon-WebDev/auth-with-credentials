@@ -89,6 +89,15 @@ function classNames(...classes) {
 
 export default function Navbar() {
     const { data: session } = useSession();
+
+    console.log("Session Data:", {
+        email: session?.user?.email,
+        firstName: session?.user?.firstName,
+        lastName: session?.user?.lastName,
+        // Add more properties as needed
+      });
+
+
     return (
         <Disclosure as="header" className="bg-gray-800">
             {({ open }) => (
