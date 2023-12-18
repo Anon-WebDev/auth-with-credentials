@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { capitalizeNames } from "@/lib/capitalizeNames";
 
 export default function RegisterForm() {
   const [firstName, setFirstName] = useState("");
